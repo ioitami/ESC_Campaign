@@ -7,12 +7,6 @@ import java.lang.*;
 
 public class allothers {
 
-    // READ A CSV FILE AND PARSE IT INTO AN ARRAYLIST OF STRING ARRAYS
-    // (ArrayList<String[]>)
-    public int testrun(int x) {
-        return x;
-    }
-    
     public String choosefile() {
     	Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Type now:");
@@ -21,7 +15,9 @@ public class allothers {
         
         return filename;
     }
-
+    
+    // READ A CSV FILE AND PARSE IT INTO AN ARRAYLIST OF STRING ARRAYS
+	// (ArrayList<String[]>)
     public ArrayList<String[]> readCSVfiles(String arg) {
 
         ArrayList<String[]> parsedlist = new ArrayList<>();
@@ -34,7 +30,6 @@ public class allothers {
                 // System.out.println(line);
                 parsedlist.add(line.split(","));
             }
-            parsedlist.remove(0);
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -44,6 +39,11 @@ public class allothers {
         }
 
         return parsedlist;
+    }
+    
+    public ArrayList<String[]> popArrList(ArrayList<String[]> parsedlist) {
+    	parsedlist.remove(0);
+    	return parsedlist;
     }
 
     // COMPARE TWO PARSED ARRAYLIST<STRING[]> AND OUTPUT THE DIFFERENCES INTO A NEW
@@ -101,7 +101,7 @@ public class allothers {
     // TAKE THE OUTPUT ARRAYLIST<STRING[]> TO BE WRITTREN TO OUTPUT CSV FILE
     public void outputCSVfile(ArrayList<String[]> parsedoutput) {
         // Create CSV file to be outputted
-        File output = new File("output.csv");
+        File output = new File("testfiles/output.csv");
 
         try {
             FileWriter outputfile = new FileWriter(output);

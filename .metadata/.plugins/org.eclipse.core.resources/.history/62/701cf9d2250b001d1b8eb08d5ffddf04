@@ -1,0 +1,25 @@
+package campaignfiles;
+
+import java.io.*;
+import java.util.*;
+import java.nio.file.*;
+import java.lang.*;
+
+import static org.junit.Assert.*;
+import org.junit.*;
+
+public class allothersTest {
+
+
+    @Test
+    public void ReadCSV() {
+        ArrayList<String[]> parsedlist = new ArrayList<>();
+
+        allothers campaign = new allothers();
+        // READ AND PARSE FILE 1
+        parsedlist = campaign.readCSVfiles("testfiles/input_test_1.csv");
+        assertEquals(i,5);
+
+    }
+}
+

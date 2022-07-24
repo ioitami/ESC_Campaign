@@ -29,8 +29,10 @@ public class app {
         
     	// READ AND PARSE FILE 1
         parsedlist = campaign.readCSVfiles("testfiles/" + file1);
+        parsedlist = campaign.popArrList(parsedlist);
         // READ AND PARSE FILE 2
         parsedlist2 = campaign.readCSVfiles("testfiles/" + file2);
+        parsedlist2 = campaign.popArrList(parsedlist2);
         // COMPARE AND OUTPUT FINAL ARRAYLIST
         parsedoutput = campaign.checkCSVfiles(parsedlist, parsedlist2);
         // CREATE AND OUTPUT CSV DIFFERENCE FILE
