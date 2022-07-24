@@ -17,4 +17,4 @@ Finally, you will be prompted to enter the second file name to be compared to.
 
 If there are no errors, the output file, **output.csv**, will be exported to **campaign/testfiles/output.csv**.
 
-Code files are found under **campaign/src/campaignfiles**.
+Code files, as well as junit test case files, are found under **campaign/src/campaignfiles**.
