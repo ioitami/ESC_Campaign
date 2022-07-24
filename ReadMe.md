@@ -1,9 +1,7 @@
 ESC Campaign
 ------------
 Ng Jowie
-
 1005494
-
 CI03
 
 Before running the program, take note that all .csv files are to be placed in the campaign/testfiles folder, as the program finds the .csv files in that directory.
