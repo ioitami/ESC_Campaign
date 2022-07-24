@@ -1,0 +1,37 @@
+package campaignfiles;
+
+import java.io.*;
+import java.util.*;
+import java.nio.file.*;
+import java.lang.*;
+
+import static org.junit.Assert.*;
+import org.junit.*;
+
+public class allothersTest {c
+
+    @Before
+    public void runBeforeEachTest() {
+        System.out.println("setting up");
+    }
+
+    @After
+    public void runAfterEachTest() {
+        System.out.println("setting down");
+    }
+
+    @Test
+    public void ReadCSV() {
+        ArrayList<String[]> parsedlist = new ArrayList<>();
+
+        allothers campaign = new allothers();
+        // READ AND PARSE FILE 1
+        File file = new File("input_test_1.csv");
+        System.out.println(file.getAbsolutePath());
+
+        parsedlist = campaign.readCSVfiles(
+                "C:/Users/NgJow/AppData/Roaming/Code/User/workspaceStorage/566036ae26686d0bef8a5471d8e70814/redhat.java/jdt_ws/Campaign_40c447bf/input_test_1.csv");
+
+    }
+}
+

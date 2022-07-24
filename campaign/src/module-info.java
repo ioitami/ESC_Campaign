@@ -1,0 +1,3 @@
+module campaign {
+	requires junit;
+}
