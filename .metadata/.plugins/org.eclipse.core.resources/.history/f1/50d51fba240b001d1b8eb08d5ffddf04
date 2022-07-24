@@ -18,7 +18,7 @@ public class allothersTest {
         allothers campaign = new allothers();
         // READ AND PARSE FILE 1
         int i = campaign.testrun(5);
-        assertEquals(i,5);
+        assertEquals(i,4);
 
     }
 }
