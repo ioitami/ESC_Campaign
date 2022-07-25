@@ -19,8 +19,8 @@ If there are no errors, the output file, **output.csv**, will be exported to **c
 
 Code files, as well as junit test case files, are found under **campaign/src/campaignfiles**.
 
-**app.java** contains the main function.
+> **app.java** contains the main function.
 
-**allothers.java** contains all the other functions which app.java uses to run.
+> **allothers.java** contains all the other functions which app.java uses to run.
 
-**allothersTest.java** contains all the junit test cases for both app.java and allothers.java.
+> **allothersTest.java** contains all the junit test cases for both app.java and allothers.java.
