@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun campaignfiles.allothersTest" project="campaign" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="campaignfiles.allothersTest" time="0.005">
+    <testcase name="popArrListTest" classname="campaignfiles.allothersTest" time="0.0"/>
+    <testcase name="ReadCSVfilesTests" classname="campaignfiles.allothersTest" time="0.0"/>
+    <testcase name="outputCSVfileTest" classname="campaignfiles.allothersTest" time="0.004"/>
+    <testcase name="checkCSVfileTest" classname="campaignfiles.allothersTest" time="0.0"/>
+    <testcase name="returnTopBotArrTest" classname="campaignfiles.allothersTest" time="0.001"/>
+  </testsuite>
+</testrun>

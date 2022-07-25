@@ -70,13 +70,41 @@ public class allothers {
     public ArrayList<String[]> checkCSVfiles(ArrayList<String[]> arr1, ArrayList<String[]> arr2) {
 
         ArrayList<String[]> parsedoutput = new ArrayList<>();
-
-        // CHECK FIRST ROW MATCH
+        
+        if(arr1.size()==0 && arr2.size()!=0) {
+        	
+        	 List<String> outputarr = new ArrayList<String>();
+             // OUTPUT ALL ROWS OF ARR2
+             for (int j = 0; j < arr2.size(); j++) {
+            	 for (int q = 0; q < arr2.get(j).length; q++) {
+                     outputarr.add(arr2.get(j)[q]);
+                 }
+                 String[] outputarrConvert2 = new String[outputarr.size()];
+                 parsedoutput.add(outputarr.toArray(outputarrConvert2));
+             }
+             
+        }
+        else if(arr1.size()!=0 && arr2.size()==0) {
+        	
+        	List<String> outputarr = new ArrayList<String>();
+            // OUTPUT ALL ROWS OF ARR2
+            for (int j = 0; j < arr1.size(); j++) {
+           	 for (int q = 0; q < arr1.get(j).length; q++) {
+                    outputarr.add(arr1.get(j)[q]);
+                }
+                String[] outputarrConvert = new String[outputarr.size()];
+                parsedoutput.add(outputarr.toArray(outputarrConvert));
+            }
+            
+        }
+        
+        // CHECK FIRST ROW MATCH        
         for (int i = 0; i < arr1.size(); i++) {
             String id = arr1.get(i)[0];
             List<String> outputarr = new ArrayList<String>();
             List<String> outputarr2 = new ArrayList<String>();
-
+            
+            // FIND MATCHING FIRST COLUMN IN ARR2
             for (int j = 0; j < arr2.size(); j++) {
                 String id2 = arr2.get(j)[0];
 
@@ -86,15 +114,15 @@ public class allothers {
                     // CHECK EACH COLUMN
                     for (int k = 1; k < arr1.get(i).length; k++) {
                         String info = arr1.get(i)[k];
-                        String info2 = arr2.get(i)[k];
+                        String info2 = arr2.get(j)[k];
 
                         // If at least one column not equals to each other, add entire row into
                         // outputarr
                         if (!info.equals(info2)) {
 
                             // Copy second csv row into outputarr
-                            for (int q = 0; q < arr2.get(i).length; q++) {
-                                outputarr2.add(arr2.get(i)[q]);
+                            for (int q = 0; q < arr2.get(j).length; q++) {
+                                outputarr2.add(arr2.get(j)[q]);
                             }
                             String[] outputarrConvert2 = new String[outputarr2.size()];
                             parsedoutput.add(outputarr2.toArray(outputarrConvert2));
