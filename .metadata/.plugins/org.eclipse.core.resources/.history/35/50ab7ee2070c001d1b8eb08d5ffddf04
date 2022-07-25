@@ -58,10 +58,10 @@ public class allothers {
 
     // Return the arr with lower num of rows
     public ArrayList<String[]> returnBotSizeArr(ArrayList<String[]> arr1, ArrayList<String[]> arr2) {
-        if (arr1.size() < arr2.size()) {
-            return arr1;
-        } else {
+        if (arr1.size() > arr2.size()) {
             return arr2;
+        } else {
+            return arr1;
         }
     }
 

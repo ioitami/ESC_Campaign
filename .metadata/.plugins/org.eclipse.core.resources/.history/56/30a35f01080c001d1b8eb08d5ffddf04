@@ -33,6 +33,8 @@ public class app {
         ArrayList<String[]> topList = campaign.returnTopSizeArr(parsedlist, parsedlist2);
         ArrayList<String[]> botList = campaign.returnBotSizeArr(parsedlist, parsedlist2);
 
+        System.out.println(topList.get(1)[1]);
+        System.out.println(botList.get(1)[1]);
         // COMPARE AND OUTPUT FINAL ARRAYLIST
         ArrayList<String[]> parsedoutput = campaign.checkCSVfiles(topList, botList);
         // CREATE AND OUTPUT CSV DIFFERENCE FILE
