@@ -34,7 +34,7 @@ public class allothers {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             // e.printStackTrace();
-            System.out.println("Unable to read file. Exiting Program.");
+            System.out.println("Unable to read file or file does not exist. Exiting Program.");
             System.exit(0);
         }
 
@@ -43,7 +43,12 @@ public class allothers {
 
     // REMOVE FIRST ROW OF ARRAYLIST<STRING[]>
     public ArrayList<String[]> popArrList(ArrayList<String[]> parsedlist) {
-        parsedlist.remove(0);
+        if (parsedlist.size() > 0) {
+            parsedlist.remove(0);
+        } else {
+            System.out.println(".csv is empty! Exiting program.");
+            System.exit(0);
+        }
         return parsedlist;
     }
 
@@ -70,85 +75,89 @@ public class allothers {
     public ArrayList<String[]> checkCSVfiles(ArrayList<String[]> arr1, ArrayList<String[]> arr2) {
 
         ArrayList<String[]> parsedoutput = new ArrayList<>();
-        
-        if(arr1.size()==0 && arr2.size()!=0) {
-        	
-        	 List<String> outputarr = new ArrayList<String>();
-             // OUTPUT ALL ROWS OF ARR2
-             for (int j = 0; j < arr2.size(); j++) {
-            	 for (int q = 0; q < arr2.get(j).length; q++) {
-                     outputarr.add(arr2.get(j)[q]);
-                 }
-                 String[] outputarrConvert2 = new String[outputarr.size()];
-                 parsedoutput.add(outputarr.toArray(outputarrConvert2));
-             }
-             
-        }
-        else if(arr1.size()!=0 && arr2.size()==0) {
-        	
-        	List<String> outputarr = new ArrayList<String>();
-            // OUTPUT ALL ROWS OF ARR2
-            for (int j = 0; j < arr1.size(); j++) {
-           	 for (int q = 0; q < arr1.get(j).length; q++) {
-                    outputarr.add(arr1.get(j)[q]);
-                }
-                String[] outputarrConvert = new String[outputarr.size()];
-                parsedoutput.add(outputarr.toArray(outputarrConvert));
-            }
-            
-        }
-        
-        // CHECK FIRST ROW MATCH        
-        for (int i = 0; i < arr1.size(); i++) {
-            String id = arr1.get(i)[0];
-            List<String> outputarr = new ArrayList<String>();
-            List<String> outputarr2 = new ArrayList<String>();
-            
-            // FIND MATCHING FIRST COLUMN IN ARR2
-            for (int j = 0; j < arr2.size(); j++) {
-                String id2 = arr2.get(j)[0];
 
-                // If able to find matching id...
-                if (id.equals(id2)) {
+        try {
+            if (arr1.size() == 0 && arr2.size() != 0) {
 
-                    // CHECK EACH COLUMN
-                    for (int k = 1; k < arr1.get(i).length; k++) {
-                        String info = arr1.get(i)[k];
-                        String info2 = arr2.get(j)[k];
-
-                        // If at least one column not equals to each other, add entire row into
-                        // outputarr
-                        if (!info.equals(info2)) {
-
-                            // Copy second csv row into outputarr
-                            for (int q = 0; q < arr2.get(j).length; q++) {
-                                outputarr2.add(arr2.get(j)[q]);
-                            }
-                            String[] outputarrConvert2 = new String[outputarr2.size()];
-                            parsedoutput.add(outputarr2.toArray(outputarrConvert2));
-
-                            // Copy first csv row into outputarr
-                            for (int q = 0; q < arr1.get(i).length; q++) {
-                                outputarr.add(arr1.get(i)[q]);
-                            }
-                            String[] outputarrConvert = new String[outputarr.size()];
-                            parsedoutput.add(outputarr.toArray(outputarrConvert));
-
-                            break;
-                        }
+                List<String> outputarr = new ArrayList<String>();
+                // OUTPUT ALL ROWS OF ARR2
+                for (int j = 0; j < arr2.size(); j++) {
+                    for (int q = 0; q < arr2.get(j).length; q++) {
+                        outputarr.add(arr2.get(j)[q]);
                     }
-                    break;
+                    String[] outputarrConvert2 = new String[outputarr.size()];
+                    parsedoutput.add(outputarr.toArray(outputarrConvert2));
                 }
-                // IF UNABLE TO FIND MATCHING ID IN SECOND FILE, ADD INTO OUTPUTARR
-                else if (j == arr2.size() - 1) {
 
-                    for (int q = 0; q < arr1.get(i).length; q++) {
-                        outputarr.add(arr1.get(i)[q]);
+            } else if (arr1.size() != 0 && arr2.size() == 0) {
+
+                List<String> outputarr = new ArrayList<String>();
+                // OUTPUT ALL ROWS OF ARR2
+                for (int j = 0; j < arr1.size(); j++) {
+                    for (int q = 0; q < arr1.get(j).length; q++) {
+                        outputarr.add(arr1.get(j)[q]);
                     }
                     String[] outputarrConvert = new String[outputarr.size()];
                     parsedoutput.add(outputarr.toArray(outputarrConvert));
                 }
+
             }
+
+            // CHECK FIRST ROW MATCH
+            for (int i = 0; i < arr1.size(); i++) {
+                String id = arr1.get(i)[0];
+                List<String> outputarr = new ArrayList<String>();
+                List<String> outputarr2 = new ArrayList<String>();
+
+                // FIND MATCHING FIRST COLUMN IN ARR2
+                for (int j = 0; j < arr2.size(); j++) {
+                    String id2 = arr2.get(j)[0];
+
+                    // If able to find matching id...
+                    if (id.equals(id2)) {
+
+                        // CHECK EACH COLUMN
+                        for (int k = 1; k < arr1.get(i).length; k++) {
+                            String info = arr1.get(i)[k];
+                            String info2 = arr2.get(j)[k];
+
+                            // If at least one column not equals to each other, add entire row into
+                            // outputarr
+                            if (!info.equals(info2)) {
+
+                                // Copy second csv row into outputarr
+                                for (int q = 0; q < arr2.get(j).length; q++) {
+                                    outputarr2.add(arr2.get(j)[q]);
+                                }
+                                String[] outputarrConvert2 = new String[outputarr2.size()];
+                                parsedoutput.add(outputarr2.toArray(outputarrConvert2));
+
+                                // Copy first csv row into outputarr
+                                for (int q = 0; q < arr1.get(i).length; q++) {
+                                    outputarr.add(arr1.get(i)[q]);
+                                }
+                                String[] outputarrConvert = new String[outputarr.size()];
+                                parsedoutput.add(outputarr.toArray(outputarrConvert));
+
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    // IF UNABLE TO FIND MATCHING ID IN SECOND FILE, ADD INTO OUTPUTARR
+                    else if (j == arr2.size() - 1) {
+
+                        for (int q = 0; q < arr1.get(i).length; q++) {
+                            outputarr.add(arr1.get(i)[q]);
+                        }
+                        String[] outputarrConvert = new String[outputarr.size()];
+                        parsedoutput.add(outputarr.toArray(outputarrConvert));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error occured in producing .csv output! Exiting now.");
+            System.exit(0);
         }
 
         return parsedoutput;
@@ -183,8 +192,9 @@ public class allothers {
             outputfile.close();
             System.out.println("CSV file is created...");
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            System.out.println("Error occured in outputting .csv. Exiting now.");
             e.printStackTrace();
+            System.exit(0);
         }
 
         System.out.println("CSV No. of Rows: " + parsedoutput.size());
