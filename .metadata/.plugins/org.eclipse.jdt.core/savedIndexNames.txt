@@ -1,5 +1,4 @@
 INDEX VERSION 1.131+D:\SUTD\5.003 Elements of Software Construction\CampaignProject\.metadata\.plugins\org.eclipse.jdt.core
-140012408.index
 3797307509.index
 760091825.index
 1865797976.index

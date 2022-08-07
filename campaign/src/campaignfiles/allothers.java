@@ -70,6 +70,17 @@ public class allothers {
         }
     }
 
+    public int checkNumColumns(ArrayList<String[]> arr1, ArrayList<String[]> arr2) {
+        System.out.println("No. of columns for 1st .csv: " + arr1.get(0).length);
+        System.out.println("No. of columns for 2st .csv: " + arr2.get(0).length);
+        if (arr1.get(0).length != arr2.get(0).length) {
+            return 0;
+        } else {
+            return 1;
+        }
+
+    }
+
     // COMPARE TWO PARSED ARRAYLIST<STRING[]> AND OUTPUT THE DIFFERENCES INTO A NEW
     // ARRAYLIST<STRING[]>
     public ArrayList<String[]> checkCSVfiles(ArrayList<String[]> arr1, ArrayList<String[]> arr2) {

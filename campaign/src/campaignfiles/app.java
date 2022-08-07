@@ -25,10 +25,19 @@ public class app {
 
         // READ AND PARSE FILE 1
         ArrayList<String[]> parsedlist = campaign.readCSVfiles("testfiles/" + file1);
-        parsedlist = campaign.popArrList(parsedlist);
+
         // READ AND PARSE FILE 2
         ArrayList<String[]> parsedlist2 = campaign.readCSVfiles("testfiles/" + file2);
+
+        // CHECK IF EACH .CSV HAS SAME NO. OF COLUMNS
+        if (campaign.checkNumColumns(parsedlist, parsedlist2) != 1) {
+            System.out.println("Files do not have same no. of columns! Exiting Program.");
+            System.exit(0);
+        }
+
+        parsedlist = campaign.popArrList(parsedlist);
         parsedlist2 = campaign.popArrList(parsedlist2);
+
         // IF FILE 1 HAS LESS ROWS THAN FILE 2, SWAP PLACES (FOR ALGO TO WORK)
         ArrayList<String[]> topList = campaign.returnTopSizeArr(parsedlist, parsedlist2);
         ArrayList<String[]> botList = campaign.returnBotSizeArr(parsedlist, parsedlist2);
