@@ -6,6 +6,8 @@ ESC Campaign
 
 Before running the program, take note that all .csv files are to be placed in the **campaign/testfiles** folder, as the program finds the .csv files in that directory.
 
+NOTE: This program only allows .csv files to be inputted (.txt files or any other file type that can be read via text editors works as well as long as the data is readable by them). Additionally, the program only works if the two .csv files have the same number of columns.
+
 To run the program, ensure that you are in the **/campaign** folder on your command line, before typing the command:
 > java -jar testapp.jar
 
