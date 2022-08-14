@@ -1,0 +1,53 @@
+Joshua
+1. Created a folder D:\SUTD\5.003 Elements of Software Construction\Campaign-Joshua
+2. used 'git init' and pulled his repo into that folder.
+3. 'cd' into ApplePackage where Apple.java is at.
+4. Files used in program needs to be in the same location as Apple.java to work
+
+Black Box Testing
+
+1. Tested default: "java Apple.java sample_file_1.csv sample_file_3.csv D:/SUTD/" in command prompt. Expected output of 6 rows.
+
+2. Tested same .csv inputs: "java Apple.java sample_file_1.csv sample_file_1.csv D:/SUTD/" in command prompt. Expected output of 0 rows.
+
+3. Tested .csvs with different num of columns: "java Apple.java sample_file_1.csv input_file_1.csv D:/SUTD/" in command prompt. Expected output of every row from both .csv. input_file_1.csv was taken from my own repo under campaign/testfiles.
+
+4. Tested .csvs with different num of rows: "java Apple.java input_file_1.csv input_file_2.csv D:/SUTD/" in command prompt. Expected output of missing rows. input_file_1.csv and 2 was taken from my own repo under campaign/testfiles.
+
+5. Tested .csvs with different extensions: "java Apple.java input_file_1.csv input_file_2.png D:/SUTD/" in command prompt. Expected output of missing rows. input_file_1.csv and input_file_1.png was taken from my own repo under campaign/testfiles.
+
+Bugs
+
+1. Entered into command prompt: "java Apple.java doesntexist.csv doesntexist2.csv D:/SUTD/"
+
+java.io.FileNotFoundException: doesntexist.csv (The system cannot find the file specified)
+        at java.base/java.io.FileInputStream.open0(Native Method)
+        at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+        at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+        at ApplePackage.Apple.readCSV(Apple.java:117)
+        at ApplePackage.Apple.main(Apple.java:45)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)   
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+        at jdk.compiler/com.sun.tools.javac.launcher.Main.execute(Main.java:419)
+        at jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:192)
+        at jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:132)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.InputStream.read(byte[], int, int)" because "this.in" is null
+        at java.base/java.io.DataInputStream.read(DataInputStream.java:151)
+        at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+        at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+        at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+        at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+        at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+        at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+        at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+        at ApplePackage.Apple.readCSV(Apple.java:125)
+        at ApplePackage.Apple.main(Apple.java:45)
+
+2. Made a completeempty.csv file with nothing inside and entered "java Apple.java completeempty.csv completeempty.csv D:/SUTD/". Outputs another completely empty .csv. Could code as an exception instead?
+
+
+
+
+
