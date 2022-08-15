@@ -1,0 +1,28 @@
+Subesh
+
+1. Created a folder D:\SUTD\5.003 Elements of Software Construction\Campaign-Subesh
+2. used 'git init' and pulled his repo into that folder.
+3. 'cd' into src where Main.java is at.
+
+Black Box Testing
+
+1. Tested "java Main.java" in command prompt. Received Error.
+--------------------------------------------------------------------
+Main.java:6: error: cannot find symbol
+        csvCompare.compare();
+        ^
+  symbol:   variable csvCompare
+  location: class Main
+1 error
+error: compilation failed
+--------------------------------------------------------------------
+
+
+2. Tested "java csvCompare.java" in command prompt. Received Error.
+--------------------------------------------------------------------
+error: can't find main(String[]) method in class: csvCompare
+--------------------------------------------------------------------
+
+
+Unable to continue further testing.
+
